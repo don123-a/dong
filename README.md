@@ -46,3 +46,97 @@ int main() {
 
     return 0;
 }
+2.作业二：
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+// 生成随机数组
+void generateArray(int arr[], int n) {
+    srand(time(0)); // 设置随机种子
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 100; // 生成0~99的随机数
+    }
+}
+
+// 打印数组
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// 冒泡排序
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // 交换arr[j]和arr[j+1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// 选择排序
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        // 交换arr[i]和arr[minIndex]
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+}
+
+int main() {
+    const int SIZE = 10;
+    int arr[SIZE];
+    int original[SIZE]; // 用于保存原始数组
+
+    // 生成随机数组
+    generateArray(arr, SIZE);
+
+    // 保存原始数组
+    for (int i = 0; i < SIZE; i++) {
+        original[i] = arr[i];
+    }
+
+    // 输出原始数组
+    cout << "原始数组： ";
+    printArray(original, SIZE);
+
+    // 冒泡排序
+    bubbleSort(arr, SIZE);
+    cout << "冒泡排序： ";
+    printArray(arr, SIZE);
+
+    // 恢复原始数组
+    for (int i = 0; i < SIZE; i++) {
+        arr[i] = original[i];
+    }
+
+    // 选择排序
+    selectionSort(arr, SIZE);
+    cout << "选择排序： ";
+    printArray(arr, SIZE);
+
+    return 0;
+}
+3.作业三：
+typedef struct {
+    char name[20];
+    char gender;
+    int birthYear;
+    int password; // 非字符串密码
+} Account;
+
