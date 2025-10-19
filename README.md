@@ -133,10 +133,3 @@ int main() {
     return 0;
 }
 3.作业三：
-typedef struct {
-    char name[20];
-    char gender;
-    int birthYear;
-    int password; // 非字符串密码
-} Account;
-
