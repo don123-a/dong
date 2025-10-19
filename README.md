@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-// 1. 计算第n个斐波那契数（迭代法避免递归栈溢出）
+// 1. 计算第n个斐波那契数
 long long fibonacci_nth(int n) {
     if (n == 0) return 0;
     if (n == 1) return 1;
@@ -91,7 +91,7 @@ void selectionSort(int arr[], int n) {
                 minIndex = j;
             }
         }
-        // 交换arr[i]和arr[minIndex]
+        // 交换arr[i]与arr[minIndex]
         int temp = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = temp;
